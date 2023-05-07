@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: changeColor 5s infinite;
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: #f4f4f4;
+    }
+    50% {
+        background-color: #333333;
+    }
+    100% {
+        background-color: #f4f4f4;
+    }
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 50px;
+	text-align:center;
+}
+form {
+    display: inline-block;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    text-align: center;
+    width: 250px;
+    height: 400px;
+    box-shadow: 0px 0px 10px 10px #cccccc;
+	transition: box-shadow 0.3s ease-in-out;
+}
+form:hover{
+    box-shadow: 0px 0px 10px 10px #800080;
+}
+input[type="text"],input[type="email"], input[type="password"], input[type="submit"] {
+    margin: 0 auto;
+}
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+	text-align: left;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    display: inline-block;
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+input[type="submit"] {
+    display: block;
+    width: 70%;
+    padding: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+    color: white;
+    cursor:pointer
+}
+input[type="submit"]:hover {
+	background-color:#555555
+}
+input[type="text"],input[type="email"],  input[type="password"] {
+    border: 2px solid #cccccc;
+	transition: border-color 0.3s ease-in-out;
+}
+input[type="text"]:focus,input[type="email"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #333333;
+}
+input[type="text"],input[type="email"], input[type="password"] {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+input[type="text"]:focus,input[type="email"]:focus, input[type="password"]:focus {
+    background-color: #333333;
+    color: white;
+}
+input[type="submit"] {
+    transition: transform 0.3s ease-in-out;
+}
+input[type="submit"]:hover {
+    transform: scale(1.1);
+	animation: bounce 1s;
+}
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+label[for="remember"] {
+    font-style: italic;
+	display: inline;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+input[type="text"]:hover,input[type="email"]:hover, input[type="password"]:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
