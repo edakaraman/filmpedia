@@ -26,6 +26,7 @@ body{
 
 .brand-logo {
     height: 70px;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -40,4 +41,45 @@ body{
     text-transform: capitalize;
     color: #fff;
     opacity: 0.8;
+}
+
+.right-container {
+    display: block;
+    margin-left: auto;
+}
+
+.search-box {
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: #fff;
+    width: 250px;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.search-box:focus {
+    width: 400px;
+    border-color: #2e2a2a;
+}
+
+.icon {
+    height: 40px;
+    cursor: pointer;
+}
+
+.log-out {
+    height: 40px;
+    width: 80px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.log-out:focus {
+    background: black;
+    color: white;
 }
