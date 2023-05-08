@@ -24,7 +24,7 @@ body{
     align-items: center;
 }
 
-.brand-logo {
+.logo {
     height: 70px;
     cursor: pointer;
 }
@@ -36,7 +36,7 @@ body{
 }
 
 .nav-items a {
-  text-decoration: none;
+    text-decoration: none;
     margin-left: 20px;
     text-transform: capitalize;
     color: #fff;
@@ -82,4 +82,29 @@ body{
 .log-out:focus {
     background: black;
     color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #B0A4A4;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 15px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.nav-items:hover .dropdown-content {
+    display: block;
 }
