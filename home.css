@@ -43,12 +43,12 @@ body{
     opacity: 0.8;
 }
 
-.right-container {
+#form {
     display: block;
     margin-left: auto;
 }
 
-.search-box {
+#search-box {
     border: none;
     border-bottom: 1px solid #aaa;
     background: transparent;
@@ -62,7 +62,7 @@ body{
     transition: .5s;
 }
 
-.search-box:focus {
+#search-box:focus {
     width: 400px;
     border-color: #2e2a2a;
 }
@@ -84,7 +84,7 @@ body{
     color: white;
 }
 
-/* Dropdown Menu */
+/* Dropdown Menü */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -107,4 +107,78 @@ body{
 
 .nav-items:hover .dropdown-content {
     display: block;
+}
+
+/* Film/Dizi İçeriği */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.movie {
+    width: 300px;
+    margin: 16px;
+    border-radius: 4px;
+    box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+    background-color: #845460;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie img {
+    width: 100%;
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+    margin-top: 0;
+    color: white;
+}
+
+.overview h3 {
+    padding: 3px;
+}
+
+.movie-info span {
+    color: white;
+    background-color: #393646;
+    padding: 0.5rem;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.movie-info span.green {
+    color: lightgreen;
+}
+
+.movie-info span.yellow {
+    color: yellow;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+.overview{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F3DEBA;
+    padding: 1rem;
+    max-height: 100%;
+    transform: translateY(101%);
+}
+
+.movie:hover .overview {
+   transform: translateY(0);
 }
