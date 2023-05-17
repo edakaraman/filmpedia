@@ -89,8 +89,6 @@ function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
 
-
-
 /* Rating değerleri renklendirme */
 function getColor(vote) {
   if (vote >= 8) {
