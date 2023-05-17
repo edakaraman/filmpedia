@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Movie App</title>
@@ -7,6 +8,7 @@
     <!-- Boxicons Navbarda kullanılan iconlar için -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <nav class="navbar">
         <img src="images/logo.jpg" class="logo" alt="">
@@ -42,6 +44,14 @@
         <img src="images/icon.jpg" class="icon" alt="">
         <button class="log-out"> <b> Logout </b> </button>
     </nav>
+
+    <!-- Youtube videoları önizlemesi için -->
+    <div id="myNav" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content" id="overlay-content"></div>
+
+    </div>
     <main id="main">
         <div class="movie">
             <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1159&q=80"
@@ -61,6 +71,7 @@
             </div>
         </div>
     </main>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
