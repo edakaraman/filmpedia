@@ -2,18 +2,20 @@
 <html>
 <head>
 	<title>Login Page</title>
-	<link rel="stylesheet" type="text/css" href="giris.css">
+	<link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
+	<!--Giriş ekranı için form oluşturdum-->
 	<form>
 		<h1>LOGIN</h1>
 		<input type="text" id="email" name="email" placeholder="Mail"><br>
 		<input type="password" id="password" name="password" placeholder="Password"><br>
 		<input type="checkbox" id="remember" name="remember" value="remember">
 		<label for="remember">Remember me!</label><br>
-		<input type="submit" onclick="login()" value="LOGIN"><br>
-		<a href="kaydol.html">Sign Up</a><br>
+		<input type="submit" id="login" value="LOGIN"><br>
+		<a href="signup.html">Sign Up</a><br>
 	</form>
-	<script type="text/javascript" src="giris.js"></script>
+	<!--Veritabanı kontrolleri ve giriş işlemleri için JavaScript sayfasına bağlantı oluşturdum-->
+	<script type="text/javascript" src="login.js"></script>
 </body>
 </html>
