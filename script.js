@@ -21,6 +21,7 @@ function getMovies(url) {
     });
 }
 
+/* film verileri (title,vote) */
 function showMovies(data) {
   main.innerHTML = "";
   data.forEach((movie) => {
@@ -32,9 +33,7 @@ function showMovies(data) {
                 alt="${title}">
             <div class="movie-info">
                 <h3> ${title} </h3>
-                <span class="${getColor(vote_average)}"> ${vote_average.toFixed(
-      2
-    )} </span>
+                <span class="${getColor(vote_average)}"> ${vote_average.toFixed(2)} </span>
             </div>
             <div class="overview">
                 <h3> Overview </h3>
