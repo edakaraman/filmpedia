@@ -3,7 +3,7 @@ body {
     text-align: center;
     animation: changeColor 5s infinite;
 }
-
+/*Arka plan animasyonu */
 @keyframes changeColor {
     0% {
         background-color: #f4f4f4;
@@ -21,6 +21,7 @@ h1 {
     margin-top: 50px;
 	text-align:center;
 }
+/*Genel form özellikleri*/
 form {
 	display: inline-block;
 	margin-top: 100px;
@@ -49,6 +50,7 @@ label {
     margin-bottom: 10px;
 	text-align: left;
 }
+/*Form elemanları için özellikler */
 input[type="text"], input[type="email"], input[type="password"] {
     display: inline-block;
     width: 70%;
@@ -73,6 +75,15 @@ input[type="button"] {
 input[type="button"]:hover {
 	background-color:#555555
 }
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+label[for="remember"] {
+    font-style: italic;
+	display: inline;
+}
+
+/*Animasyonlar eklendi*/
 input[type="text"],input[type="email"],  input[type="password"] {
 	border: 2px solid #cccccc;
 	transition: border-color 0.3s ease-in-out;
@@ -96,6 +107,7 @@ input[type="text"]:focus,input[type="email"]:focus, input[type="password"]:focus
     background-color: #333333;
     color: white;
 }
+/*Button için animasyon */
 input[type="button"] {
     transition: transform 0.3s ease-in-out;
     -webkit-transition: transform 0.3s ease-in-out;
@@ -112,13 +124,8 @@ input[type="button"]:hover {
     -o-transform: scale(1.1);
     -webkit-animation: bounce 1s;
 }
-input[type="checkbox"] {
-    margin-right: 5px;
-}
-label[for="remember"] {
-    font-style: italic;
-	display: inline;
-}
+
+/*Button için animasyon oluşturuldu*/
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
