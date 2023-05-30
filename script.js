@@ -11,7 +11,7 @@ const form = document.getElementById("form");
 const search = document.getElementById("search-box");
 getMovies(API_URL);
 
-/* apiden film verileri fetch yöntemi ile çekme */
+/* apiden film verilerini fetch yöntemi ile çekme */
 function getMovies(url) {
   fetch(url)
     .then((res) => res.json())
