@@ -16,12 +16,13 @@ body {
     }
 }
 
+/*Form özellikleri ve başlık tanımladı*/
 h1 {
     font-size: 36px;
     margin-top: 50px;
 	text-align:center;
 }
-/*Form özellikleri tanımladı*/
+
 form {
     display: inline-block;
     margin-top: 100px;
@@ -111,6 +112,7 @@ input[type="button"]:hover {
         transform: translateY(-15px);
     }
 }
+/*Form elemanları için animasyonlar*/
 input[type="text"]:hover, input[type="password"]:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
