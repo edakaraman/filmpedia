@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="home.css">
+    <!-- Boxicons Navbarda kullanýlan iconlar için -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Navbar ve dropdown list kýsýmlarý -->
+    <nav class="navbar">
+        <img src="images/logo.jpg" class="logo" alt="">
+        <ul class="nav-links">
+            <li class="nav-items"> <a href="#"><i class='bx bxs-home'></i> Home </a></li>
+            <li class="nav-items">
+                <a href="#" class="main"><i class='bx bx-movie-play'></i> Series </a>
+                <div class="dropdown-content">
+                    <a href="#">American</a>
+                    <a href="#">Documentary</a>
+                    <a href="#">Crime</a>
+                    <a href="#">Drama</a>
+                </div>
+            </li>
+            <li class="nav-items">
+                <a href="#"><i class='bx bxs-movie'></i> Movies</a>
+                <div class="dropdown-content">
+                    <a href="#">Action</a>
+                    <a href="#">Anime</a>
+                    <a href="#">Science Fiction</a>
+                    <a href="#">Fantastic</a>
+                    <a href="#">Income</a>
+                </div>
+            </li>
+            <li class="nav-items"> <a href="#"> <i class='bx bxs-flame'></i> Trending </a></li>
+            <li class="nav-items"> <a href="#"> <i class='bx bxs-heart'></i> My List </a></li>
+            <li class="nav-items"> <a href="#"> Search By Language </a></li>
+        </ul>
+        <form id="form">
+            <input type="text" id="search-box" placeholder="Search..">
+        </form>
+        <box-icon name='search'></box-icon>
+        <img src="images/icon.jpg" class="icon" alt="">
+        <button class="log-out"> <b> Logout </b> </button>
+    </nav>
+   
+</body>
+</html>
