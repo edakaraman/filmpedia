@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\FilmPedia",
-    "\\FilmPedia\\Content",
     "\\FilmPedia\\Content\\filmpedia",
-    "\\FilmPedia\\Content\\filmpedia\\filmpedia"
+    "\\FilmPedia\\Content\\filmpedia\\filmpedia",
+    "\\FilmPedia\\Views",
+    "\\FilmPedia\\Views\\Home"
   ],
-  "SelectedNode": "\\FilmPedia\\Content\\filmpedia\\filmpedia\\home.css",
+  "SelectedNode": "\\FilmPedia\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
