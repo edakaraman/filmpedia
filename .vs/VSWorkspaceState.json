@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FilmPedia",
+    "\\FilmPedia\\Content",
+    "\\FilmPedia\\Content\\filmpedia",
+    "\\FilmPedia\\Content\\filmpedia\\filmpedia"
   ],
-  "SelectedNode": "\\FilmPedia.sln",
+  "SelectedNode": "\\FilmPedia\\Content\\filmpedia\\filmpedia\\home.css",
   "PreviewInSolutionExplorer": false
 }
