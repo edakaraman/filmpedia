@@ -64,8 +64,8 @@ body {
 }
 
 #search-box:focus {
-        width: 400px;
-        border-color: #2e2a2a;
+    width: 400px;
+    border-color: #2e2a2a;
 }
 
 .icon {
@@ -81,8 +81,8 @@ body {
 }
 
 .log-out:focus {
-        background: black;
-        color: white;
+    background: black;
+    color: white;
 }
 
 /* Açýlýr Menü */
@@ -95,15 +95,15 @@ body {
 }
 
 .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 15px 15px;
-        text-decoration: none;
-        display: block;
+    float: none;
+    color: black;
+    padding: 15px 15px;
+    text-decoration: none;
+    display: block;
 }
 
 .dropdown-content a:hover {
-            background-color: #ddd;
+    background-color: #ddd;
 }
 
 .nav-items:hover .dropdown-content {
@@ -239,7 +239,7 @@ main {
 }
 
 .overlay a:hover, .overlay a:focus {
-        color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .overlay .closebtn {
