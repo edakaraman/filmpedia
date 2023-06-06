@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="~/Content/filmpedia/filmpedia/home.css">
+    <!-- Boxicons Navbarda kullanılan iconlar için -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KRJQ1zOQEO46gBfkXhGccUqgYP/x1ik10I2tC0j+vsxudOWlTzR3pHx3EYRc3H6hNO4dp0GY8clAeMLPfSzIXA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+    @RenderBody()
+    <script src="~/Content/filmpedia/filmpedia/script.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

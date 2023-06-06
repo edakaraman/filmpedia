@@ -1,0 +1,90 @@
+﻿@model List<FilmPedia.Models.UserFavoriteLists>
+
+@{
+    ViewBag.Title = "Favorite List";
+}
+
+<h2>Favorite List</h2>
+<nav class="navbar">
+    <img src="~/Content/filmpedia/filmpedia/images/logo.jpg" class="logo" alt="">
+    <ul class="nav-links">
+        <li class="nav-items"> <a href="#"><i class='bx bxs-home'></i> Home </a></li>
+        <li class="nav-items">
+            <a href="#" class="main"><i class='bx bx-movie-play'></i> Series </a>
+            <div class="dropdown-content">
+                <a href="#">American</a>
+                <a href="#">Documentary</a>
+                <a href="#">Crime</a>
+                <a href="#">Drama</a>
+            </div>
+        </li>
+        <li class="nav-items">
+            <a href="#"><i class='bx bxs-movie'></i> Movies</a>
+            <div class="dropdown-content">
+                <a href="#">Action</a>
+                <a href="#">Anime</a>
+                <a href="#">Science Fiction</a>
+                <a href="#">Fantastic</a>
+                <a href="#">Income</a>
+            </div>
+        </li>
+        <li class="nav-items"> <a href="#"> <i class='bx bxs-flame'></i> Trending </a></li>
+        <li class="nav-items"> <a href="/favoriteList"> <i class='bx bxs-heart'></i> My List </a></li>
+        <li class="nav-items"> <a href="#"> Search By Language </a></li>
+    </ul>
+    <form id="form">
+        <input type="text" id="search-box" placeholder="Search..">
+    </form>
+    <box-icon name='search'></box-icon>
+    <img src="~/Content/filmpedia/filmpedia/images/icon.jpg" class="icon" alt="">
+    <button class="log-out">
+
+        <a href="@Url.Action("Logout", "User")"> <b> Logout </b> </a>
+    </button>
+
+
+
+
+</nav><br />
+<br />
+<br />
+<br />
+<table>
+    <thead>
+        <tr>
+            <th>Favorite Film</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FavoriteFilm</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/Content/filmpedia/filmpedia/script.js"></script>
+
+<!-- Youtube videoları önizlemesi için -->
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content" id="overlay-content"></div>
+</div>
+<main id="main">
+    <div class="movie">
+        <img src="" alt="">
+        <div class="movie-info">
+            <h3> Movie Title </h3>
+            <span class="">  </span>
+        </div>
+        <div class="overview">
+            <h3> Overview </h3>
+        </div>
+    </div>
+</main>
+<script>
+    var loggedInUserId =@Convert.ToInt32(TempData["LoggedInUserId"]);
+
+</script>
