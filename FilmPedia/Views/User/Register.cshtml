@@ -23,15 +23,15 @@
 
         <div>
             @Html.TextBoxFor(model => model.Username, new { placeholder = "Username" }) @* Kullanıcı adı alanı *@
-            @Html.ValidationMessageFor(model => model.Username) @* Username alanının hata mesajını gösterir *@
+           <br /> @Html.ValidationMessageFor(model => model.Username) @* Username alanının hata mesajını gösterir *@
         </div>
         <div>
             @Html.TextBoxFor(model => model.Email, new { placeholder = "Email" }) @* Mail alanı *@
-            @Html.ValidationMessageFor(model => model.Email) @* Email alanının hata mesajını gösterir *@
+            <br />@Html.ValidationMessageFor(model => model.Email) @* Email alanının hata mesajını gösterir *@
         </div>
         <div>
             @Html.PasswordFor(model => model.Password, new { placeholder = "Password" }) @* Password alanı *@
-            @Html.ValidationMessageFor(model => model.Password) @* Password alanının hata mesajını gösterir *@
+            <br />@Html.ValidationMessageFor(model => model.Password) @* Password alanının hata mesajını gösterir *@
         </div>
         <div>
             <input type="checkbox" id="accept" name="accept" value="accept" checked disabled> @*Şartları onaylamak için checkbox *@

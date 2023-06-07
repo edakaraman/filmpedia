@@ -5,10 +5,73 @@
 }
 
 <h2>Favorite List</h2>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .movie {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+        .movie img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+    .movie-info {
+        flex: 1;
+    }
+
+        .movie-info h3 {
+            margin: 0;
+        }
+
+        .movie-info span {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+    .overview {
+        flex: 1;
+        margin-top: 10px;
+    }
+
+        .overview h3 {
+            margin: 0;
+        }
+
+    .know-more,
+    .favorite {
+        margin-top: 10px;
+    }
+</style>
 <nav class="navbar">
     <img src="~/Content/filmpedia/filmpedia/images/logo.jpg" class="logo" alt="">
     <ul class="nav-links">
-        <li class="nav-items"> <a href="#"><i class='bx bxs-home'></i> Home </a></li>
+        <li class="nav-items"> <a href="/Home"><i class='bx bxs-home'></i> Home </a></li>
         <li class="nav-items">
             <a href="#" class="main"><i class='bx bx-movie-play'></i> Series </a>
             <div class="dropdown-content">
@@ -38,53 +101,235 @@
     <box-icon name='search'></box-icon>
     <img src="~/Content/filmpedia/filmpedia/images/icon.jpg" class="icon" alt="">
     <button class="log-out">
-
         <a href="@Url.Action("Logout", "User")"> <b> Logout </b> </a>
     </button>
-
-
-
-
-</nav><br />
-<br />
-<br />
-<br />
-<table>
-    <thead>
-        <tr>
-            <th>Favorite Film</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+</nav>
+<div style="display: flex;">
+    <table style="width: 25%;">
+        <thead>
             <tr>
-                <td>@item.FavoriteFilm</td>
+                <th>Favorite Film</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <center>
+                            <a href="#" onclick="searchFilm('@Html.Raw(item.FavoriteFilm)')" style="display: flex; justify-content: flex-start;">
+                                <span style="color: white; text-decoration: underline; cursor: pointer;">@item.FavoriteFilm</span>
+                            </a>
+                            <a href="#" onclick="deleteFilm('@Html.Raw(item.FavoriteFilm)')" style="display: flex; justify-content: flex-end;">
+                                <span style="color: white; text-decoration: underline; cursor: pointer;"></span>
+                                <span style="color: red; cursor: pointer;">&#10060;</span>
+                            </a>
 
-<script src="~/Content/filmpedia/filmpedia/script.js"></script>
+
+                        </center>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script src="~/Content/filmpedia/filmpedia/yourscript.js"></script>
+
+    <main id="main" style="width: 75%; overflow: auto;">
+        <div class="movie">
+            <img src="" alt="">
+            <div class="movie-info">
+                <h3>Movie Title</h3>
+                <span class=""></span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+            </div>
+        </div>
+        <tbody id="favorite-films-body"></tbody>
+    </main>
+
+</div>
+<script src="~/Content/filmpedia/filmpedia/scriptfavorite.js"></script>
+<script src="~/Content/filmpedia/filmpedia/scriptDefaultFavoriteLists.js"></script>
+<script>  var loggedInUserId = @Convert.ToInt32(TempData["LoggedInUserId"]);</script>
+<!-- JavaScript kodunda kullanıcı kimlik bilgisini almak için -->
+<script>
+   
+    function deleteFilm(filmTitle) {
+        const request = new XMLHttpRequest();
+        const url = "/FavoriteList/DeleteFavFilm"; // Silme işlemini gerçekleştiren Controller ve Action'ın URL'sini buraya ekleyin
+
+        request.open("POST", url);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.onload = function () {
+            if (request.status === 200) {
+                // İstek başarıyla tamamlandı
+                console.log("Film başarıyla silindi.");
+            } else {
+                // İstek sırasında bir hata oluştu
+                console.log("Hata: " + request.statusText);
+            }
+        };
+        request.onerror = function () {
+            // İstek gönderilirken bir hata oluştu
+            console.log("Hata: İstek gönderilirken bir sorun oluştu.");
+        };
+
+        const requestData = { filmTitle: filmTitle }; // filmTitle değerini içeren JSON nesnesi
+        request.send(JSON.stringify(requestData));
+
+        console.log("Film silindi: " + filmTitle);
+        // Silme işlemi başarılı olduysa
+        location.reload(); // Sayfayı yeniden yükle
+    }
+
+
+    function searchFilm(filmTitle) {
+        const searchBox = document.getElementById("search-box");
+        searchBox.value = filmTitle;
+        form.dispatchEvent(new Event("submit")); // Arama formuna submit olayı tetikleniyor
+    }
+
+    // Enter tuşuna basıldığında arama işlemini gerçekleştirmek için
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Enter tuşunun varsayılan işlevini engelle
+            form.dispatchEvent(new Event("submit")); // Arama formuna submit olayı tetikleniyor
+        }
+    });
+
+    function searchMovies(searchTerm) {
+        const url = searchURL + "&query=" + searchTerm;
+
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.results.length > 0) {
+                    displayMovie(data.results[0]);
+                } else {
+                    displayErrorMessage("Arama sonucunda film bulunamadı.");
+                }
+            })
+            .catch((error) => {
+                console.log("Hata: ", error);
+                displayErrorMessage("Arama sırasında bir hata oluştu.");
+            });
+    }
+
+    function displayMovie(movie) {
+        const main = document.getElementById("main");
+
+        // Film içeriğini oluştur
+        const { title, poster_path, vote_average, overview } = movie;
+        const movieEl = document.createElement("div");
+        movieEl.classList.add("movie");
+        movieEl.innerHTML = `
+            <img src="${IMG_URL + poster_path}" alt="${title}">
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="${getColor(vote_average)}">${vote_average.toFixed(2)}</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                ${overview}
+            </div>
+        `;
+        main.innerHTML = ""; // Mevcut film içeriğini temizle
+        main.appendChild(movieEl);
+    }
+
+    function displayErrorMessage(message) {
+        const main = document.getElementById("main");
+        main.innerHTML = `<p>${message}</p>`;
+    }
+</script>
+
 
 <!-- Youtube videoları önizlemesi için -->
+
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content" id="overlay-content"></div>
 </div>
-<main id="main">
-    <div class="movie">
-        <img src="" alt="">
-        <div class="movie-info">
-            <h3> Movie Title </h3>
-            <span class="">  </span>
-        </div>
-        <div class="overview">
-            <h3> Overview </h3>
-        </div>
-    </div>
-</main>
-<script>
-    var loggedInUserId =@Convert.ToInt32(TempData["LoggedInUserId"]);
 
+<script>
+
+    // Favori filmleri getirip görüntüleyen fonksiyon
+    function loadFavoriteFilms() {
+        // AJAX isteği gönder
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '@Url.Action("GetFavoriteFilms", "favoriteList")'); // Yönlendirme belirle
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var favoriteFilms = JSON.parse(xhr.responseText); // Sunucudan gelen favori filmleri al
+                displayFavoriteFilms(favoriteFilms); // Favori filmleri görüntüle
+            }
+        };
+        xhr.send();
+    }
+
+    function searchFilm(filmTitle) {
+        const searchBox = document.getElementById("search-box");
+        searchBox.value = filmTitle;
+        searchMovies(filmTitle); // Call the searchMovies function with the filmTitle parameter
+    }
+
+    // Favori filmleri görüntüleyen fonksiyon
+    function displayFavoriteFilms(films) {
+        var favoriteFilmsBody = document.getElementById("favorite-films-body"); // tbody elementini hedefle
+
+        // Önce mevcut favori filmleri temizle
+        favoriteFilmsBody.innerHTML = "";
+
+        // Favori filmleri döngüye al ve tbody içerisine ekle
+        for (var i = 0; i < films.length; i++) {
+            var row = document.createElement('tr');
+            var filmCell = document.createElement('td');
+            var filmLink = document.createElement('a');
+            filmLink.textContent = films[i].FavoriteFilm;
+            filmLink.href = "#";
+            filmLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                var filmTitle = this.textContent;
+                searchFilm(filmTitle);
+            });
+            filmCell.appendChild(filmLink);
+            row.appendChild(filmCell);
+            favoriteFilmsBody.appendChild(row);
+        }
+    }
+
+  // Favori filmleri getirip görüntüleyen fonksiyon
+    function displayFavoriteFilms(films) {
+        var favoriteFilmsBody = document.getElementById("favorite-films-body"); // tbody elementini hedefle
+
+        // Önce mevcut favori filmleri temizle
+        favoriteFilmsBody.innerHTML = "";
+
+        // Favori filmleri döngüye al ve tbody içerisine ekle
+        for (var i = 0; i < films.length; i++) {
+            var row = document.createElement('tr');
+            var filmCell = document.createElement('td');
+            filmCell.textContent = films[i].FavoriteFilm;
+            row.appendChild(filmCell);
+            favoriteFilmsBody.appendChild(row);
+        }
+
+        // Favori filmlerden birine tıklandığında ilgili filmi görüntüle
+        var filmLinks = document.querySelectorAll("#favorite-films-body td a");
+        filmLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                var filmTitle = this.textContent;
+                searchFilm(filmTitle);
+            });
+        });
+    }
+
+
+
+
+ 
 </script>
+
+
+

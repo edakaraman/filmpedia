@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FilmPedia</RootNamespace>
     <AssemblyName>FilmPedia</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -63,9 +63,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -184,6 +184,9 @@
     <Content Include="Content\filmpedia\filmpedia\images\logo.jpg" />
     <Content Include="Content\filmpedia\filmpedia\login.css" />
     <Content Include="Content\filmpedia\filmpedia\login.html" />
+    <Content Include="Content\filmpedia\filmpedia\yourscript.js" />
+    <Content Include="Content\filmpedia\filmpedia\scriptDefaultFavoriteLists.js" />
+    <Content Include="Content\filmpedia\filmpedia\scriptfavorite.js" />
     <Content Include="Content\filmpedia\filmpedia\script1.js" />
     <Content Include="Content\filmpedia\filmpedia\script.js" />
     <Content Include="Content\filmpedia\filmpedia\signup.css" />

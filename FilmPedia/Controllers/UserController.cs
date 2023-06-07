@@ -17,12 +17,34 @@ namespace FilmPedia.Controllers
         {
             return View();
         }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mailAddress = new System.Net.Mail.MailAddress(email);
+                return mailAddress.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         [HttpPost]
         public ActionResult Register(Users user)
         {
+            // E-posta formatını kontrol etmek için sorgu
+            bool isValidEmail = IsValidEmail(user.Email);
+
+            if (!isValidEmail)
+            {
+                ModelState.AddModelError("Email", "Geçerli bir e-posta adresi giriniz!!!");
+                // Eğer e-posta formatı geçerli değilse kullanıcıyı uyarmak için bir hata mesajı
+                return View(user); // Kayıt formunu tekrar göster
+            }
+
             // Kullanıcıyı veritabanına kaydetme işlemleri
-            using (var db = new FilmPediaDBEntities()) // FilmPediaDBEntities, projenizdeki veritabanı bağlantı sınıfının adını temsil eder
+            using (var db = new FilmPediaDBEntities()) // FilmPediaDBEntities, veritabanı bağlantı sınıfının adını temsil eder
             {
                 // Kullanıcı adı veya e-posta ile var olan bir kullanıcıyı kontrol et
                 bool isUserExists = db.Users.Any(u => u.Username == user.Username || u.Email == user.Email);
@@ -39,7 +61,7 @@ namespace FilmPedia.Controllers
                 db.SaveChanges(); // Değişiklikleri kaydetme
             }
 
-           
+
 
             return RedirectToAction("Login");
         }
