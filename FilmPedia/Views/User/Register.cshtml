@@ -1,4 +1,47 @@
-﻿@model FilmPedia.Models.Users
+﻿<!--Görünüm düzeni ve modeli ataması yaptım-->
+@model FilmPedia.Models.Users
 @{
     Layout = null;
 }
+
+<!DOCTYPE html>
+<html>
+<head> 
+    <!-- Sayfa adını oluşturdum -->
+    <title>Sign Up Page</title>
+    <!--CSS dosyasına bağladım-->
+    <link rel="stylesheet" type="text/css" href="~/Content/filmpedia/filmpedia/signup.css">
+</head>
+<body>
+    <!--Kayıt ekranı için form oluşturdum-->
+
+    <!-- User denetleyicisindeki Register eylemine yönlendirilen bir POST formu başlattım -->
+    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+    {
+        <h1>SIGN UP</h1>
+        @Html.ValidationSummary() @* Tüm hata mesajlarını gösterir *@
+
+        <div>
+            @Html.TextBoxFor(model => model.Username, new { placeholder = "Username" }) @* Kullanıcı adı alanı *@
+            @Html.ValidationMessageFor(model => model.Username) @* Username alanının hata mesajını gösterir *@
+        </div>
+        <div>
+            @Html.TextBoxFor(model => model.Email, new { placeholder = "Email" }) @* Mail alanı *@
+            @Html.ValidationMessageFor(model => model.Email) @* Email alanının hata mesajını gösterir *@
+        </div>
+        <div>
+            @Html.PasswordFor(model => model.Password, new { placeholder = "Password" }) @* Password alanı *@
+            @Html.ValidationMessageFor(model => model.Password) @* Password alanının hata mesajını gösterir *@
+        </div>
+        <div>
+            <input type="checkbox" id="accept" name="accept" value="accept" checked disabled> @*Şartları onaylamak için checkbox *@
+            <label for="remember">I accept all the terms.</label><br>
+
+            @Html.ValidationSummary(true, "", new { style = "color: red;" }) @* Tüm hata mesajlarını kırmızı gösterir *@
+
+            <input type="submit" id="signUp" value="SIGN UP" /> @* Formdaki bilgilerin işlenmesi için buton ekledim *@
+        </div>
+    }
+
+</body>
+</html>

@@ -1,5 +1,37 @@
-﻿@model FilmPedia.Models.Users
-
+﻿<!--Görünüm düzeni ve modeli ataması yaptım -->
+@model FilmPedia.Models.Users
 @{
     Layout = null;
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <!--CSS dosyasına bağlantı oluşturdum -->
+    <link rel="stylesheet" type="text/css" href="~/Content/filmpedia/filmpedia/login.css">
+</head>
+<body>
+    <!--Giriş ekranı için form oluşturdum-->
+    <!--User denetleyicisindeki Login eylemine yönlendirilen bir POST formu başlattım -->
+    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+    {
+        <h1>LOGIN</h1>
+
+        <div>
+            @Html.TextBoxFor(model => model.Email, new { placeholder = "Email" }) @* E-posta alanı *@
+        </div>
+
+        <div>
+            @Html.PasswordFor(model => model.Password, new { placeholder = "Password" }) @* Parola alanı *@
+            @Html.ValidationSummary(true, "", new { style = "color: red;" }) @* Tüm hata mesajlarını kırmızı renkte gösterir *@
+
+        </div>
+      
+        <input type="submit" id="login" value="LOGIN" /> @* Formu göndermek için bir button *@
+        <br />
+        @Html.ActionLink("Sign Up", "Register", "User") @* Sign Up sayfasına yönlendirme için bağlantı *@
+    }
+
+</body>
+</html>
