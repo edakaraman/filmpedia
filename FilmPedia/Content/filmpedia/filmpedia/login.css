@@ -1,0 +1,136 @@
+/* body tagı arasında uygulanacak özellikler */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: changeColor 5s infinite;
+}
+
+/*Arka plan animasyonları*/
+@keyframes changeColor {
+    0% {
+        background-color: #f4f4f4;
+    }
+    50% {
+        background-color: #333333;
+    }
+    100% {
+        background-color: #f4f4f4;
+    }
+}
+
+/*Başlık için özellikler*/
+h1 {
+    font-size: 36px;
+    margin-top: 50px;
+	text-align:center;
+}
+
+/*Genel form özellikleri*/
+form {
+    display: inline-block;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    text-align: center;
+    width: 250px;
+    height: 400px;
+    box-shadow: 0px 0px 10px 10px #cccccc;
+	transition: box-shadow 0.3s ease-in-out;
+}
+form:hover{
+    box-shadow: 0px 0px 10px 10px #800080;
+}
+
+/*Form elemanları için özellikler tanımlandı*/
+input[type="text"], input[type="password"], input[type="button"] {
+    margin: 0 auto;
+}
+
+input[type="text"], input[type="password"] {
+    display: inline-block;
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+/*Login buttonu için özellikler */
+#login {
+    margin: 0 auto;
+    display: block;
+    width: 70%;
+    padding: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+    color: white;
+    cursor: pointer
+}
+#login:hover {
+	background-color:#555555
+}
+
+/*Form elemanlarına animasyon eklendi*/
+input[type="text"], input[type="password"] {
+    border: 2px solid #cccccc;
+	transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #333333;
+}
+
+input[type="text"], input[type="password"] {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    background-color: #333333;
+    color: white;
+}
+
+input[type="text"]:hover, input[type="password"]:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Button için animasyonlar */
+#login {
+    transition: transform 0.3s ease-in-out;
+}
+#login:hover {
+    transform: scale(1.1);
+    animation: bounce 1s;
+}
+    
+/*Button animasyonu oluşturuldu*/
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/*Sayfa geçişi için özellikler tanımlandı*/
+a {
+	color:#333333; 
+	text-decoration:none; 
+	margin-bottom:10px; 
+	display:block; 
+	font-size: 12px;
+}
+
+a:hover {
+	color:#800080; 
+}
